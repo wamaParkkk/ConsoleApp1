@@ -25,7 +25,7 @@ namespace ConsoleApp1
             // GPIO 컨트롤러 초기화
             using (GpioController controller = new GpioController())
             {
-                // GPIO 핀을 입력 모드로 설정 (풀다운 저항 사용)
+                // GPIO 핀을 입력 모드로 설정
                 controller.OpenPin(pinRed, PinMode.Input);
                 controller.OpenPin(pinYellow, PinMode.Input);
                 controller.OpenPin(pinGreen, PinMode.Input);                
@@ -52,7 +52,7 @@ namespace ConsoleApp1
                                 // Unicode 인코딩하여 서버로 전송
                                 byte[] data = Encoding.Unicode.GetBytes(message);
                                 stream.Write(data, 0, data.Length);
-                                Console.WriteLine("서버에 메시지 전송: " + message);
+                                Console.WriteLine("서버에 메시지 전송 : " + message);
                                 // 1초 대기
                                 Thread.Sleep(sendInterval);
                             }
@@ -61,15 +61,15 @@ namespace ConsoleApp1
                     catch (SocketException ex)
                     {
                         // 서버와 연결 실패 시 예외 처리
-                        Console.WriteLine($"서버와 연결 실패: {ex.Message}");
+                        Console.WriteLine($"서버와 연결 실패 : {ex.Message}");
                         Console.WriteLine($"5초 후에 다시 시도합니다...");
-                        Thread.Sleep(retryInterval);  // 5초 후 재시도
+                        Thread.Sleep(retryInterval);    // 5초 후 재시도
                     }
                     catch (Exception ex)
                     {
                         // 기타 예외 처리
-                        Console.WriteLine($"오류 발생: {ex.Message}");
-                        Thread.Sleep(retryInterval);  // 5초 후 재시도
+                        Console.WriteLine($"오류 발생 : {ex.Message}");
+                        Thread.Sleep(retryInterval);    // 5초 후 재시도
                     }
                 }
             }
