@@ -10,7 +10,7 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string serverIp = "10.141.139.40";  // 서버 IP 주소
+            string serverIp = "10.141.217.137"; // 서버 IP 주소
             int port = 8000;                    // 서버 포트 번호
             int retryInterval = 5000;           // 연결 재시도 간격 (5초)
             int sendInterval = 1000;            // 메시지 전송 간격 (1초)
