@@ -1,0 +1,45 @@
+*** [c#] GPIO 패키지 설치
+dotnet add C:\Users\156607\Amkor_Project\AlarmMonitor\ConsoleApp1\ConsoleApp1\ConsoleApp1.csproj package System.Device.Gpio
+
+
+*** [c#] 컴파일할 때 명령어
+dotnet publish -c Release -r linux-arm --self-contained true
+
+
+*** [라즈베리파이] myapp.service 명령어 (Terminal에서)
+sudo nano /etc/systemd/system/myapp.service
+
+- 작성 완료 후 ctrl+x로 저장 -> y -> Enter키
+[Unit]
+Description=My Application Service
+After=network.target
+
+[Service]
+ExecStartPre=/bin/sleep 10
+ExecStart=/home/k5ee/Desktop/publish/ConsoleApp1
+WorkingDirectory=/home/k5ee/Desktop/publish/
+Restart=always
+User=k5ee
+Environment=DISPLAY=:0
+
+[Install]
+WantedBy=multi-user.target
+
+
+*** [라즈베리파이] 권한 부여 및 데몬 리로드 (Terminal에서)
+sudo chmod +x /home/k5ee/Desktop/publish/ConsoleApp1
+sudo systemctl daemon-reload
+sudo systemctl enable myapp.service
+sudo systemctl start myapp.service
+
+
+*** [라즈베리파이] 프로그램 자동실행 지정 명령어 (Terminal에서)
+nano /home/k5ee/.config/lxsession/LXDE-pi/autostart
+ - 라인 추가
+lxterminal -e . /home/k5ee/Desktop/publish/ConsoleApp1
+
+
+*** [라즈베리파이] 날짜와 시간 수동으로 설정 (Terminal에서)
+sudo date -s "YYYY-MM-DD HH:MM:SS"
+
+sudo hwclock -w

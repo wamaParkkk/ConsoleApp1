@@ -10,17 +10,20 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string serverIp = "10.141.217.137"; // 서버 IP 주소
+            string serverIp = "10.141.217.195"; // 서버 IP 주소
             int port = 8000;                    // 서버 포트 번호
             int retryInterval = 5000;           // 연결 재시도 간격 (5초)
             int sendInterval = 1000;            // 메시지 전송 간격 (1초)
             bool isConnected = false;
-            string strEquipmentName = "Unloader#1";
+            string strEquipmentName = "K2023-1100333";
+
+            // 통신 활성 여부
+            string sConn = "0";
 
             // GPIO 핀 번호 설정
-            int pinRed = 2;
-            int pinYellow = 3;
-            int pinGreen = 0;
+            int pinRed = 17;
+            int pinYellow = 27;
+            int pinGreen = 22;
 
             // GPIO 컨트롤러 초기화
             using (GpioController controller = new GpioController())
@@ -43,12 +46,18 @@ namespace ConsoleApp1
                             // 서버와의 연결 유지 및 데이터 전송 loop
                             while (true)
                             {
-                                // GPIO 핀에서 값 읽기
+                                // 통신 여부                                
+                                if (sConn == "0")
+                                    sConn = "1";
+                                else
+                                    sConn = "0";
+
+                                // GPIO 핀에서 값 읽기                                
                                 bool pinRedState = controller.Read(pinRed) == PinValue.High;
                                 bool pinYellowState = controller.Read(pinYellow) == PinValue.High;
-                                bool pinGreenState = controller.Read(pinGreen) == PinValue.High;
+                                bool pinGreenState = controller.Read(pinGreen) == PinValue.High;                                
                                 // 입력 상태를 서버로 전송할 문자열로 변환
-                                string message = $"{strEquipmentName},{pinRedState},{pinYellowState},{pinGreenState}";
+                                string message = $"{strEquipmentName},{pinRedState},{pinYellowState},{pinGreenState},{sConn}";
                                 // Unicode 인코딩하여 서버로 전송
                                 byte[] data = Encoding.Unicode.GetBytes(message);
                                 stream.Write(data, 0, data.Length);
