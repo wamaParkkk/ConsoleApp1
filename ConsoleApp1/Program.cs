@@ -10,12 +10,17 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            string serverIp = "10.141.217.195"; // 서버 IP 주소
+            string serverIp = "10.141.217.54";  // 서버 IP 주소
             int port = 8000;                    // 서버 포트 번호
             int retryInterval = 5000;           // 연결 재시도 간격 (5초)
             int sendInterval = 1000;            // 메시지 전송 간격 (1초)
             bool isConnected = false;
-            string strEquipmentName = "K2023-1100333";
+
+            //string strEquipmentName = "K2022-1101253";  // DUFCUD1
+            //string strEquipmentName = "K2023-1100445";  // DUFCUD2
+            //string strEquipmentName = "K2023-1100333";  // DUFCUD3
+            //string strEquipmentName = "K2023-1100334";  // DUFCUD4
+            string strEquipmentName = "K2023-1100292";  // DUFCUD5
 
             // 통신 활성 여부
             string sConn = "0";
