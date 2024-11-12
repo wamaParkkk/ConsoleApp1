@@ -28,8 +28,8 @@ namespace ConsoleApp1
             /////////////////////////////////////////////////////////////
             ///
             // 2호기 ////////////////////////////////////////////////////
-            string strEquipmentName = "K2020-1101206";  // DFCUD3
-            //string strEquipmentName = "K2022-1100519";  // DFCUD4
+            //string strEquipmentName = "K2020-1101206";  // DFCUD3
+            string strEquipmentName = "K2022-1100519";  // DFCUD4
             //string strEquipmentName = "K2022-1100535";  // DFCUD5            
             /////////////////////////////////////////////////////////////
             ///
