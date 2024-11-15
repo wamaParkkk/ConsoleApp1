@@ -11,8 +11,11 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {            
             //string serverIp = "10.141.131.82";  // 서버 IP 주소 (1호기)
-            string serverIp = "10.141.132.112";  // 서버 IP 주소 (2호기)
+            //string serverIp = "10.141.132.112"; // 서버 IP 주소 (2호기)
             //string serverIp = "10.141.131.53";  // 서버 IP 주소 (3호기)
+            string serverIp = "10.141.146.28";  // 서버 IP 주소 (4호기) (M2F CAMERA 3대)
+            //string serverIp = "10.141.138.30";  // 서버 IP 주소 (5호기) (M3F SIPLET 2대)
+            //string serverIp = "10.141.138.24";  // 서버 IP 주소 (6호기) (M3F MONACO 2대)
 
             int port = 8000;                    // 서버 포트 번호
             int retryInterval = 5000;           // 연결 재시도 간격 (5초)
@@ -29,13 +32,30 @@ namespace ConsoleApp1
             ///
             // 2호기 ////////////////////////////////////////////////////
             //string strEquipmentName = "K2020-1101206";  // DFCUD3
-            string strEquipmentName = "K2022-1100519";  // DFCUD4
+            //string strEquipmentName = "K2022-1100519";  // DFCUD4
             //string strEquipmentName = "K2022-1100535";  // DFCUD5            
             /////////////////////////////////////////////////////////////
             ///
             // 3호기 ////////////////////////////////////////////////////
             //string strEquipmentName = "K2021-1100673";  // DFCUD1
             //string strEquipmentName = "K2021-1100373";  // DFCUD2            
+            /////////////////////////////////////////////////////////////
+            ///
+            // 4호기 (M2F CAMERA 3대) ///////////////////////////////////
+            //string strEquipmentName = "K2023-1100404";  // DFCUD6
+            //string strEquipmentName = "K2023-1100405";  // DFCUD7
+            string strEquipmentName = "K2022-1100660";  // DFCUD8            
+            /////////////////////////////////////////////////////////////
+            ///
+            // 5호기 (M3F SIPLET 3대) ///////////////////////////////////
+            //string strEquipmentName = "K2021-1101499-F";// SFCJUD1 - Front
+            //string strEquipmentName = "K2021-1101499";  // SFCJUD1 - Rear
+            //string strEquipmentName = "K2021-1101155";  // SFCJUD2            
+            /////////////////////////////////////////////////////////////
+            ///
+            // 6호기 (M3F MONACO 2대) ///////////////////////////////////
+            //string strEquipmentName = "K2021-1100374";  // MFCUD1
+            //string strEquipmentName = "K2021-1101229";  // MFCUD2            
             /////////////////////////////////////////////////////////////
 
             // 통신 활성 여부
